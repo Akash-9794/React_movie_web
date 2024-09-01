@@ -40,7 +40,7 @@ const TopNav = () => {
       {query.length > 0 && (
         <i
           onClick={() => setquery("")}
-          className="text-zinc-400 text-3xl ri-close-fill"
+          className="text-zinc-400 text-3xl cursor-pointer ri-close-fill"
         ></i>
       )}
 

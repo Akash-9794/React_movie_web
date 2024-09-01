@@ -2,15 +2,15 @@
 
 const DropDown = ({ title,options,func }) => {
   return (
-    <div className="select pl-8">
+    <div className="select relative ">
       <select
         defaultValue="0"
         name="format"
         onChange={func}
         id="format"
-        className="text-white "
+        className="absolute top-[-8%] left-[5%] w-full h-full"
       >
-        <option value="0" disabled>
+        <option value="0"  disabled>
           {title}
         </option>
         {options.map((o, i) => (

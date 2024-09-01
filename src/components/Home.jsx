@@ -5,6 +5,7 @@ import axios from "./utility/axios";
 import Header from "./templates/Header";
 import HorizontalCards from "./templates/HorizontalCards";
 import DropDown from "./templates/DropDown";
+import Loading from "./Loading";
 
 const Home = () => {
   document.title = "Movie | WebApp";
@@ -36,7 +37,6 @@ const Home = () => {
     !wallpaper && GetHeaderWallpaper();
   }, [category]);
 
-
   return wallpaper && trending ? (
     <>
       <SideNav />
@@ -46,16 +46,16 @@ const Home = () => {
         <div className="mb-3 flex justify-between m-4">
           <h1 className="text-3xl font-semibold text-zinc-400">Trending</h1>
           <DropDown
-            title="filter" options={["tv", "movie", "all"]}
-            func={(e)=>setCategory(e.target.value)}
+            title="filter"
+            options={["tv", "movie", "all"]}
+            func={(e) => setCategory(e.target.value)}
           />
-
         </div>
         <HorizontalCards data={trending} />
       </div>
     </>
   ) : (
-    <h1>Loading...</h1>
+    <Loading />
   );
 };
 
