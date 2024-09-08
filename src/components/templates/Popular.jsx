@@ -46,8 +46,10 @@ const Popular = () => {
   }, [category]);
 
   return popular.length > 0 ? (
+
     <div className=" py-1 h-screen w-screen bg-[#1F1E24]  ">
-      <div className="w-full flex items-center justify-between">
+      
+      <div className="w-full md:flex h-[15%] fixed top-0 items-center justify-between bg-[linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.6),rgba(0,0,0,.8))] z-50 px-5 ">
         <h1 className="text-2xl font-semibold text-zinc-400">
           <i
             onClick={() => navigate(-1)}
@@ -66,6 +68,7 @@ const Popular = () => {
           
         </div>
       </div>
+      <div className="h-[90%] w-full overflow-auto">
       <InfiniteScroll
         dataLength={popular.length}
         next={GetPopular}
@@ -74,6 +77,7 @@ const Popular = () => {
       >
         <Cards data={popular} title={category} />
       </InfiniteScroll>
+      </div>
     </div>
   ) : (
     <Loading />

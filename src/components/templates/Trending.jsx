@@ -44,10 +44,11 @@ const Trending = () => {
   useEffect(() => {
     refreshHandler();
   }, [category, duration]);
+  console.log(trending.map((e,idx)=>e.popularity))
 
   return trending.length > 0 ? (
     <div className=" py-1 h-screen w-screen bg-[#1F1E24]  ">
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full md:h-[10%] h-20% md:flex items-center justify-between p-5 fixed top-0 bg-[linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.6),rgba(0,0,0,.8))] z-50">
         <h1 className="text-2xl font-semibold text-zinc-400">
           <i
             onClick={() => navigate(-1)}
@@ -55,8 +56,8 @@ const Trending = () => {
           ></i>
           Trending
         </h1>
-        <div className="flex items-center w-4/5">
           <TopNav />
+        <div className="flex items-center md:w-4/5 w-11/12">
           <DropDown
             title="category"
             options={["movie", "tv", "all"]}
@@ -70,14 +71,16 @@ const Trending = () => {
           />
         </div>
       </div>
+      <div className="h-[90%] overflow-auto">
       <InfiniteScroll
         dataLength={trending.length}
         next={GetTrending}
         hasMore={hasMore}
         loader={<h1>Loading...</h1>}
       >
-        <Cards data={trending} title={category} />
+        <Cards data={trending} title="tv" />
       </InfiniteScroll>
+      </div>
     </div>
   ) : (
     <Loading />

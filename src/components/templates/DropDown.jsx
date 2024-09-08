@@ -1,20 +1,12 @@
-
-
-const DropDown = ({ title,options,func }) => {
+const DropDown = ({ title, options, func }) => {
   return (
-    <div className="select relative ">
-      <select
-        defaultValue="0"
-        name="format"
-        onChange={func}
-        id="format"
-        className="absolute top-[-8%] left-[5%] w-full h-full"
-      >
-        <option value="0"  disabled>
+    <div className="select  ">
+      <select defaultValue="0" name="format" onChange={func} id="format"className="w-5 " >
+        <option value="0" disabled className="text-blue-600"  >
           {title}
         </option>
         {options.map((o, i) => (
-          <option key={i} value={o}>
+          <option key={i} value={o} className="text-blue-600" >
             {o.toUpperCase()}
           </option>
         ))}

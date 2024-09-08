@@ -45,8 +45,8 @@ const TvShows = () => {
   }, [category]);
 
   return tvshows.length > 0 ? (
-    <div className=" py-1 h-screen w-screen bg-[#1F1E24]  ">
-      <div className="w-full flex items-center justify-between">
+    <div className="text-white py-1 h-screen w-screen bg-[#1F1E24]  ">
+      <div className="w-full h-[15%] md:flex items-center justify-between fixed top-0 bg-[linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.6),rgba(0,0,0,.8))] z-50 px-5">
         <h1 className="text-2xl font-semibold text-zinc-400">
           <i
             onClick={() => navigate(-1)}
@@ -64,14 +64,16 @@ const TvShows = () => {
           <div className="w-4"></div>
         </div>
       </div>
+      <div className="h-[90%] overflow-auto">
       <InfiniteScroll
         dataLength={tvshows.length}
         next={GetTvshows}
         hasMore={hasMore}
         loader={<h1>Loading...</h1>}
       >
-        <Cards data={tvshows} title={category} />
+        <Cards data={tvshows} title="tv" />
       </InfiniteScroll>
+      </div>
     </div>
   ) : (
     <Loading />

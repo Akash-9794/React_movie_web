@@ -46,7 +46,7 @@ const People = () => {
 
   return person.length > 0 ? (
     <div className=" py-1 h-screen w-screen bg-[#1F1E24]  ">
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full h-[15%] px-5  md:flex items-center justify-between fixed top-0 bg-[linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.6),rgba(0,0,0,.8))] z-50">
         <h1 className="text-2xl font-semibold text-zinc-400">
           <i
             onClick={() => navigate(-1)}
@@ -64,14 +64,16 @@ const People = () => {
           <div className="w-4"></div>
         </div>
       </div>
+      <div className="h-[90%] mt-10 md:mt-1 overflow-y-auto">
       <InfiniteScroll
         dataLength={person.length}
         next={GetPerson}
         hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
+        loader={<h1 className="px-8 md:px-28">Loading...</h1>}
       >
-        <Cards data={person} title={category} />
+        <Cards data={person} title="person" />
       </InfiniteScroll>
+      </div>
     </div>
   ) : (
     <Loading />
