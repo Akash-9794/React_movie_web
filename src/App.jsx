@@ -5,9 +5,9 @@ import Popular from "./components/templates/Popular";
 import Movies from "./components/templates/Movies";
 import TvShows from "./components/templates/TvShows";
 import People from "./components/templates/People";
-import MovieDetails from "./components/templates/movieDetails";
-import PeopleDetails from "./components/templates/peopleDetails";
-import TvDetails from "./components/templates/tvDetails";
+import MovieDetails from "./components/templates/MovieDetails";
+import PeopleDetails from "./components/templates/PeopleDetails";
+import TvDetails from "./components/templates/TvDetails";
 import Trailer from "./components/templates/Trailer";
 import NotFound from "./components/templates/NotFound";
 function App() {
@@ -20,16 +20,15 @@ function App() {
           <Route path="/popular" element={<Popular />} />
           <Route path="/movie" element={<Movies />} />
           <Route path="/movie/details/:id" element={<MovieDetails />} />
-          <Route path="/movie/details/:id/trailer" element={<Trailer/>} />         
+          <Route path="/movie/details/:id/trailer" element={<Trailer />} />
 
           <Route path="/tv" element={<TvShows />} />
-          <Route path="/tv/details/:id" element={<TvDetails />} >
-          <Route path="/tv/details/:id/trailer" element={<Trailer/>} />
+          <Route path="/tv/details/:id" element={<TvDetails />}>
+            <Route path="/tv/details/:id/trailer" element={<Trailer />} />
           </Route>
           <Route path="/person" element={<People />} />
           <Route path="/person/details/:id" element={<PeopleDetails />} />
-          <Route path="*" element={<NotFound/>} />
-          
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </>
